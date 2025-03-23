@@ -6,23 +6,20 @@ import edu.kis.vh.nursery.factory.DefaultRhymersFactory;
 import edu.kis.vh.nursery.factory.Rhymersfactory;
 
 class RhymersDemo {
-    public static final int INPUT_COUNT = 15;
-    public static final int STANDARD_RHYMERS_COUNT = 3;
-    public static final int HANOI_INDEX = 3;
-    public static final int RANDOM_BOUND = 20;
+
     public static void main(String[] args) {
         Rhymersfactory factory = new DefaultRhymersFactory();
 
         DefaultCountingOutRhymer[] rhymers = { factory.getStandardRhymer(), factory.getFalseRhymer(),
                 factory.getFIFORhymer(), factory.getHanoiRhymer()};
 
-        for (int i = 1; i < INPUT_COUNT; i++)
-            for (int j = 0; j < STANDARD_RHYMERS_COUNT; j++)
+        for (int i = 1; i < 15; i++)
+            for (int j = 0; j < 3; j++)
                 rhymers[j].countIn(i);
 
         java.util.Random rn = new java.util.Random();
-        for (int i = 1; i < INPUT_COUNT; i++)
-            rhymers[3].countIn(rn.nextInt(RANDOM_BOUND));
+        for (int i = 1; i < 15; i++)
+            rhymers[3].countIn(rn.nextInt(20));
 
         for (int i = 0; i < rhymers.length; i++) {
             while (!rhymers[i].callCheck())
@@ -31,7 +28,7 @@ class RhymersDemo {
         }
 
         System.out.println("total rejected is "
-                + ((HanoiRhymer) rhymers[HANOI_INDEX]).reportRejected());
+                + ((HanoiRhymer) rhymers[3]).reportRejected());
 
     }
 
