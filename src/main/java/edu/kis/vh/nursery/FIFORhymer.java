@@ -2,6 +2,7 @@ package edu.kis.vh.nursery;
 
 public class FIFORhymer extends DefaultCountingOutRhymer {
 
+    // TODO: Zmiana nazwy zmiennej temp na bardziej opisową
     private final DefaultCountingOutRhymer temp = new DefaultCountingOutRhymer();
 
     @Override
